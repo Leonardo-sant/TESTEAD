@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>META DE FIM DE ANO</title>
+    <style>
+        body {
+            background-color: #1A1AFF; /* Cor de fundo azul */
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 40px;
+            text-transform: uppercase; /* Título em maiúsculo */
+        }
+        #countdown {
+            font-size: 30px;
+            margin: 20px 0;
+        }
+        .image-container {
+            margin: 50px 0;
+        }
+        .image-container img {
+            width: 80%; /* Imagem maior, ocupando 80% da largura da tela */
+            max-width: 1000px; /* Limita a largura máxima da imagem */
+            border-radius: 10px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #1A1AFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>META DE FIM DE ANO</h1>
+
+    <!-- Imagem do gráfico da meta (substitua com a sua imagem) -->
+    <div class="image-container">
+        <img src="1733105641173-27365b36-7c89-4be7-bd36-4b19c8e97b4d_1.jpg" alt="Gráfico da Meta"> <!-- Substitua "grafico-meta.jpg" com o caminho da sua imagem -->
+    </div>
+
+    <!-- Temporizador -->
+    <div id="countdown"></div> <!-- Exibirá o temporizador -->
+
+    <script>
+        // Função para atualizar a contagem regressiva
+        function atualizarContagemRegressiva() {
+            const dataAlvo = new Date("December 20, 2024 17:00:00").getTime();
+            const agora = new Date().getTime();
+            const distancia = dataAlvo - agora;
+
+            // Cálculo do tempo restante
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            // Exibição no formato de contagem regressiva
+            document.getElementById("countdown").innerHTML = 
+                "Faltam " + dias + " dias " + horas + " horas " + minutos + " minutos " + segundos + " segundos";
+
+            // Se o tempo acabar
+            if (distancia < 0) {
+                clearInterval(contador);
+                document.getElementById("countdown").innerHTML = "A data chegou!";
+            }
+        }
+
+        // Atualizar a contagem regressiva a cada segundo
+        const contador = setInterval(atualizarContagemRegressiva, 1000);
+    </script>
+
+</body>
+</html>
