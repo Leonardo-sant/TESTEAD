@@ -13,11 +13,12 @@
             padding: 50px;
         }
         h1 {
-            font-size: 40px;
+            font-size: 2.5rem; /* Aumenta o tamanho da fonte para melhor leitura */
             text-transform: uppercase; /* Título em maiúsculo */
+            color: white; /* Cor do título agora é branca */
         }
         #countdown {
-            font-size: 30px;
+            font-size: 1.5rem;
             margin: 20px 0;
         }
         .image-container {
@@ -43,13 +44,13 @@
 
     <h1>META DE FIM DE ANO</h1>
 
-    <!-- Imagem do gráfico da meta (substitua com a sua imagem) -->
+    <!-- Imagem do gráfico da meta -->
     <div class="image-container">
-        <img src="ADZERA APRESENTAÇÃO_page-0001.jpg" alt="Gráfico da Meta"> <!-- Substitua "grafico-meta.jpg" com o caminho da sua imagem -->
+        <img src="ADZERA APRESENTAÇÃO_page-0001.jpg" alt="Gráfico da Meta" onError="this.onerror=null;this.src='fallback.jpg';">
     </div>
 
     <!-- Temporizador -->
-    <div id="countdown"></div> <!-- Exibirá o temporizador -->
+    <div id="countdown"></div>
 
     <script>
         // Função para atualizar a contagem regressiva
